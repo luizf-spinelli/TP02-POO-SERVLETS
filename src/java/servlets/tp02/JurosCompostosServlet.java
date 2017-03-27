@@ -38,10 +38,28 @@ public class JurosCompostosServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Juros Compostos</title>");         
+            out.println("<title>Juros Compostos</title>");  
+            out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'crossorigin='anonymous'>");
+            out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'    integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'> </script>");
+            out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>");
+            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/style.css' />");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h4><a href='index.html'>Voltar</a></h4>");
+            out.println("<nav class='navbar navbar-inverse' style='border-radius: 0;'>");
+            out.println("<div class='container-fluid'>");
+            out.println("<div class='navbar-header'>");
+            out.println("<a class='navbar-brand' >POO TP02</a></div>");
+            out.println("<div>");
+            out.println("<ul class='nav navbar-nav navbar-right'>");
+            out.println(" <li><a href='home'>HOME</a></li>");
+            out.println("<li><a href='juros-simples'>%SIMPLES</a></li>");
+            out.println("<li class='active'><a href='juros-compostos'>%COMPOSTOS</a></li>");
+            out.println("</ul>");
+            out.println("</div>");
+            out.println("</nav>");
+            
+            out.println("<div class='container' style='padding-bottom: 20px;'>");
+            out.println("<h4><a class='btn btn-default' href='home'>Voltar</a></h4>");
             double c = 1.00;
             try{c = Double.parseDouble(request.getParameter("c"));
             }catch(Exception ex){}
@@ -77,6 +95,7 @@ public class JurosCompostosServlet extends HttpServlet {
                 out.println("</tr>");        
             }while (i < t);
             out.println("</table>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
