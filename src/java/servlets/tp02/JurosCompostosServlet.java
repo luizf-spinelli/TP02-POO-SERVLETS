@@ -48,7 +48,7 @@ public class JurosCompostosServlet extends HttpServlet {
             out.println("<nav class='navbar navbar-inverse' style='border-radius: 0;'>");
             out.println("<div class='container-fluid'>");
             out.println("<div class='navbar-header'>");
-            out.println("<a class='navbar-brand' >POO TP02</a></div>");
+            out.println("<a class='navbar-brand' href='home' >POO TP02</a></div>");
             out.println("<div>");
             out.println("<ul class='nav navbar-nav navbar-right'>");
             out.println(" <li><a href='home'>HOME</a></li>");
