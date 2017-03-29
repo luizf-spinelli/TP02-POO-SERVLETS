@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "JurosSimplesServlet", urlPatterns = {"/juros-simples"})
 public class JurosSimplesServlet extends HttpServlet {
-
+    DecimalFormat df = new DecimalFormat("#0.00");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -80,6 +81,30 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("</form></br>");
             out.println("<h2>Juros Simples</h2>");
             
+            out.println("<table border='1'>");
+            out.println("<tr>");
+            out.println("<th>Mês</th>");
+            out.println("<th>Valor</th>");
+            out.println("</tr>");
+            
+            
+            //res = resultado / c = capital / j = juros / t = tempo
+            j = j/100;
+            
+            double res = c * j;
+            for (int i=1; i<=t; i++){
+                c = c + res + j;
+                
+                
+                out.println("<tr>");
+                out.println("<th>"+ i +"</th>");
+                out.println("<td> R$ "+df.format(c)+"</td>");
+                out.println("</tr>");
+            }
+             
+            out.println("</table>");
+            out.println("</div>");
+
           
             out.println("</body>");
             out.println("</html>");
