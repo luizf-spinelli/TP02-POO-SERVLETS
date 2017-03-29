@@ -90,7 +90,7 @@ public class Home extends HttpServlet {
                      out.println("<li>Tecnicamente, ocorre a fruição imediata dos juros pelo credor.</li>");
                      out.println("<li>Se não pagos e não incorporados ao montante, gera perda inflacionária e da porcentagem de rendimento.</li>");
                      out.println("</ul>");
-                     out.println("<a class='btn btn-default' href='JurosSimples'>%SIMPLES</a>");
+                     out.println("<a class='btn btn-default' href='juros-simples'>%SIMPLES</a>");
                      out.println("</div>");
                      out.println("<div class='col-lg-6'>");
                      out.println("<h4 class='text-center'>JUROS COMPOSTOS</h4>");
@@ -101,7 +101,7 @@ public class Home extends HttpServlet {
                      out.println("<li>São como bezerros que, ao crescerem, gerarão novas bezerros.</li>");
                      out.println("<li>Tecnicamente, ocorre a fruição diferida dos juros pelo credor.</li>");
                      out.println("<li>Se pagos, não incorporam ao montante, que não cresce durante o período em que forem pagos.</li></ul>");
-                     out.println("<a class='btn btn-default text' href='JurosCompostos'>%COMPOSTOS</a>");
+                     out.println("<a class='btn btn-default text' href='juros-compostos'>%COMPOSTOS</a>");
                      out.println("</div>");
                      out.println("</div>");
                      out.println("</div>");
