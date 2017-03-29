@@ -47,12 +47,12 @@ public class Home extends HttpServlet {
             out.println("<nav class='navbar navbar-inverse' style='border-radius: 0;'>");
             out.println("<div class='container-fluid'>");
             out.println("<div class='navbar-header'>");
-            out.println("<a class='navbar-brand' href='home'>POO TP02</a></div>");
+            out.println("<a class='navbar-brand' >POO TP02</a></div>");
             out.println("<div>");
             out.println("<ul class='nav navbar-nav navbar-right'>");
-            out.println("<li class='active'><a href='home'>HOME</a></li>");
-            out.println("<li><a href='juros-simples'>%SIMPLES</a></li>");
-            out.println("<li><a href='juros-compostos'>%COMPOSTOS</a></li>");
+            out.println(" <li class='active'><a href='#'>HOME</a></li>");
+            out.println("<li><a href='JurosSimples'>%SIMPLES</a></li>");
+            out.println("<li><a href='JurosCompostos'>%COMPOSTOS</a></li>");
             out.println("</ul>");
             out.println("</div>");
             out.println("</nav>");
@@ -78,8 +78,8 @@ public class Home extends HttpServlet {
             out.println("<div class='container-fluid text-center'>");
             out.println("<h3>SISTEMAS PARA CALCULO DE JUROS</h3>");
             out.println("<div class='btn-group' role='group' aria-label='...''>");
-            out.println("<a class='btn btn-default' href='juros-simples'>SIMPLES</a>");
-            out.println("<a class='btn btn-default' href='juros-compostos'>COMPOSTOS</a>");
+            out.println("<a class='btn btn-default' href='JurosSimples'>SIMPLES</a>");
+            out.println("<a class='btn btn-default' href='JurosCompostos'>COMPOSTOS</a>");
             out.println("</div>");
             out.println("</div> ");
             out.println("</body>");
