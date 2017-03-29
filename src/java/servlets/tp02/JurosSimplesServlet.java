@@ -81,31 +81,11 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("</form></br>");
             out.println("<h2>Juros Simples</h2>");
             
-            out.println("<table border='1'>");
-            out.println("<tr>");
-            out.println("<th>Mês</th>");
-            out.println("<th>Valor</th>");
-            out.println("</tr>");
-            
-            
-            //res = resultado / c = capital / j = juros / t = tempo
-            j = j/100;
-            
-            double res = c * j;
-            for (int i=1; i<=t; i++){
-                c = c + res + j;
-                
-                
-                out.println("<tr>");
-                out.println("<th>"+ i +"</th>");
-                out.println("<td> R$ "+df.format(c)+"</td>");
-                out.println("</tr>");
-            }
-             
-            out.println("</table>");
+            j=j/100;
+            double res = c * ( 1 + (j * t ));
+                           
+            out.println("<p>O montante final, ao longo de "+t+" meses será de: R$ "+df.format(res)+"</p>");
             out.println("</div>");
-
-          
             out.println("</body>");
             out.println("</html>");
         }
