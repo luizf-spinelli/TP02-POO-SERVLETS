@@ -12,13 +12,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.DecimalFormat;
 
 /**
  *
- * @author Rafa
+ * @author Luiz Spinelli
  */
-@WebServlet(name = "JurosSimplesServlet", urlPatterns = {"/juros-simples"})
-public class JurosSimplesServlet extends HttpServlet {
+@WebServlet(name = "JurosCompostos", urlPatterns = {"/JurosCompostos"})
+public class JurosCompostos extends HttpServlet {
+   DecimalFormat df = new DecimalFormat("#0.00");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +35,25 @@ public class JurosSimplesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Juros Simples</title>");
+            out.println("<title>Juros Compostos</title>");  
             out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u'crossorigin='anonymous'>");
             out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'    integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'> </script>");
             out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>");
-            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/style.css' />");
+            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/styles/style.css' />");            
             out.println("</head>");
-            
             out.println("<body>");
             out.println("<nav class='navbar navbar-inverse' style='border-radius: 0;'>");
             out.println("<div class='container-fluid'>");
             out.println("<div class='navbar-header'>");
-            out.println("<a class='navbar-brand' href='home'>POO TP02</a></div>");
+            out.println("<a class='navbar-brand' href='index.html'>POO TP02</a></div>");
             out.println("<div>");
             out.println("<ul class='nav navbar-nav navbar-right'>");
-            out.println("<li> <a href='home'>HOME</a></li>");
-            out.println("<li class='active'><a href='juros-simples' >%SIMPLES</a></li>");
-            out.println("<li> <a href='juros-compostos'>%COMPOSTOS</a></li>");
+            out.println(" <li><a href='home'>HOME</a></li>");
+            out.println("<li><a href='JurosSimples'>%SIMPLES</a></li>");
+            out.println("<li class='active'><a href='JurosCompostos'>%COMPOSTOS</a></li>");
             out.println("</ul>");
             out.println("</div>");
             out.println("</nav>");
@@ -78,9 +78,24 @@ public class JurosSimplesServlet extends HttpServlet {
             out.println("<input type='text' name='t' value='"+t+"'/><br/><br/>");
             out.println("<input type='submit' value='Calcular'/>");            
             out.println("</form></br>");
-            out.println("<h2>Juros Simples</h2>");
-            
-          
+            out.println("<h2>Juros Compostos</h2>");
+            out.println("<table border='1'>");
+            out.println("<tr>");
+            out.println("<th>Mês</th>");
+            out.println("<th>Valor</th>");            
+            out.println("</tr>");
+            int i=0;                  
+            do
+            {   double res = c *(j/100);
+                c = c + res;
+                i++;
+                out.println("<tr>");
+                out.println("<td>"+i+"</td>");
+                out.println("<td> R$ "+df.format(c)+"</td>");
+                out.println("</tr>");        
+            }while (i < t);
+            out.println("</table>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
